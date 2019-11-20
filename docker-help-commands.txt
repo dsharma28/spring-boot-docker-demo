@@ -1,0 +1,17 @@
+//Build Image with argument
+docker build --build-arg JAR_FILE=target/*.jar  -t dsharm28/springboot-docker:v1 .
+
+//Build Image without argument
+docker build  -t dsharm28/springboot-docker:v1 .
+
+//Remove image
+docker rmi -f dsharm28/springboot-docker:v1
+
+//Run Image with container port on host and container name
+docker run --name springboot-docker -p 9000:9000 dsharm28/springboot-docker:v1
+
+//Logging to the container shell
+docker exec -ti springboot-docker /bin/sh
+
+//docker pull
+docker pull dsharm28/springboot-docker:v1
